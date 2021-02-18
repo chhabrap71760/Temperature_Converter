@@ -74,7 +74,6 @@ class Help:
         self.help_box.destroy()
 
 
-
 # main routine
 if __name__ == "__main__":
     root = Tk()

@@ -2,11 +2,11 @@ from tkinter import *
 import random
 
 
-class Foo:
+class Converter:
     def __init__(self):
 
         # Formatting variables
-        background_color = "light blue"
+        background_color = "light grey"
 
         # Converter Frame
         self.converter_frame = Frame(width=300, bg=background_color,
@@ -14,7 +14,7 @@ class Foo:
         self.converter_frame.grid()
 
         # Temperature Converter Heading (row 0)
-        self.temp_heading_label = label(self.converter_frame,
+        self.temp_heading_label = Label(self.converter_frame,
                                         text="Temperature Converter",
                                         font="Arial 16 bold",
                                         bg=background_color,
@@ -42,12 +42,12 @@ class Foo:
 
         self.to_c_button = Button(self.conversion_buttons_frame,
                                   text="To Centigrade", font="Arial 10 bold",
-                                  bg="Khaki1", padx=10, pady=10)
+                                  bg="blue2", padx=10, pady=10)
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
                                   text="To Fahrenheit", font="Arial 10 bold",
-                                  bg="Orchid1", padx=10, pady=10)
+                                  bg="firebrick3", padx=10, pady=10)
         self.to_f_button.grid(row=0, column=1)
 
         # Answer label (row 4)
@@ -62,19 +62,16 @@ class Foo:
 
         self.calc_hist_button = Button(self.hist_help_frame, font="Arial 14 bold",
                                        text="calculation History", width=15)
+        self.calc_hist_button.grid(row=0, column=0)
 
-
-
-
-
-
-
-
+        self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
+                                        text="Help", width=5)
+        self.help_button.grid(row=0, column=1)
 
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("title goes here")
-    something = Foo(root)
+    root.title("Temperature Converter")
+    something = Converter()
     root.mainloop()
