@@ -8,6 +8,9 @@ class Converter:
         # Formatting variables
         background_color = "light grey"
 
+        # Initialise list to hold calculation history
+        self.all_calc_list = []
+
         # Converter Frame
         self.converter_frame = Frame(width=300, bg=background_color,
                                      pady=10)
@@ -15,7 +18,7 @@ class Converter:
 
         # Temperature Converter Heading (row 0)
         self.temp_heading_label = Label(self.converter_frame,
-                                        text="TempeSrature Converter",
+                                        text="Temperature Converter",
                                         font="Arial 16 bold",
                                         bg=background_color,
                                         padx=10, pady=10)
@@ -61,11 +64,15 @@ class Converter:
         self.hist_help_frame.grid(row=5, pady=10)
 
         self.calc_hist_button = Button(self.hist_help_frame, font="Arial 14 bold",
-                                       text="calculation History", width=15)
+                                       text="calculation History", width=15,
+                                       command=lambda: self.history(self.all_calc_list))
         self.calc_hist_button.grid(row=0, column=0)
 
+        if len(self.all_calc_list) == 0:
+            self.history_buttom.config(state=DISABLED)
+
         self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
-                                        text="Help", width=5)
+                                  text="Help", width=5)
         self.help_button.grid(row=0, column=1)
 
 
